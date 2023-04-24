@@ -103,7 +103,7 @@ resource "aws_route_table_association" "privateRoute" {
 // EIP Creation
 resource "aws_eip" "eip" {
   vpc      = true
-  tags {
+  tags = {
     Name = "eip-roboshop-${var.ENV}"
   }
 }
