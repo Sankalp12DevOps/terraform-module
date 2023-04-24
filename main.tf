@@ -29,3 +29,17 @@ resource "aws_subnet" "public" {
     Name = "publcsubnet-${var.ENV}-${count.index}"
   }
 }
+
+resource "aws_internet_gateway" "gw" {
+  vpc_id = aws_vpc.main.id
+
+  tags = {
+    Name = "igw-${var.ENV}"
+  }
+}
+
+resource "aws_vpc_peering_connection" "foo" {
+  peer_vpc_id   = var.PEER_VPC_ID
+  vpc_id        = aws_vpc.main.id
+  auto_accept   = true
+}
