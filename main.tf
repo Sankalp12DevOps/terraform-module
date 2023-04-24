@@ -56,7 +56,7 @@ resource "aws_route_table" "publicRoute" {
   }
    route {
     cidr_block = var.ALLOW_ALL_CIDR
-    gateway_id = aws_internet_gateway.gw
+    gateway_id = aws_internet_gateway.gw.id
   }
   tags = {
     Name = "publicRouteTable-${var.ENV}"
