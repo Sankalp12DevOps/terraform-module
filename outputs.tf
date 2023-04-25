@@ -9,28 +9,31 @@ output "PUBLC_SUBNET_IDS"{
   value = aws_subnet.public.*.id
 }
 
-output "igw_id"{
-value = aws_internet_gateway.gw.id
+/////////////////////
 
+
+output defaultVPCcidr{
+value = var.DEFAULT_CIDR
 }
 
-output "peering_id"{
-value = aws_vpc_peering_connection.roboshop_peering.id
 
+output peer_vpc_id{
+value = var.PEER_VPC_ID
 }
 
-output "publicRouteTable_id"{
-value = aws_route_table.publicRoute.id
-
+output publicSubnet_cidrs{
+  value = aws_subnet.public.*.cidr_block
 }
 
-output "privateRouteTable_id"{
-value = aws_route_table.privateRoute.id
-
+output privateSubnet_cidrs{
+value = aws_subnet.private.*.cidr_block
+}
+output env{
+value = var.ENV
 }
 
-output "natGateway_id"{
-value = aws_nat_gateway.nat.id
-
+output vpc_cidr{
+value = var.VPC_CIDR
 }
+
 
