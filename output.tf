@@ -5,7 +5,7 @@ output "ROBO_VPC_ID"{
 output "PRVT_SUBNET_IDS"{
   value = aws_subnet.private.*.id
 }
-output "PRVT_SUBNET_IDS"{
+output "PUBLC_SUBNET_IDS"{
   value = aws_subnet.public.*.id
 }
 
